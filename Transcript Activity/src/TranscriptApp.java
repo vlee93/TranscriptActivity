@@ -26,8 +26,22 @@ public static void main(String[] args) {
 		
 		choice = Validator.getString(sc, "Another course? (y/n): ");
 		
-		mytranscript.addItem(mycourseenrollment);
-
+		try
+		{
+			mytranscript.addItem(mycourseenrollment);
+		}
+		catch (NegativeArraySizeException e)
+		{
+			System.out.println("Error; " + e.getMessage());
+		}
+		catch (ArrayIndexOutOfBoundsException e)
+		{
+			System.out.println("Error; " + e.getMessage());
+		}
+		catch (ArrayStoreException e)
+		{
+			System.out.println("Error; " + e.getMessage());
+		}
 	}
 	
 	System.out.println("------------------------------------------------------Transcript------------------------------------------------------");
@@ -54,8 +68,21 @@ public static void main(String[] args) {
 	System.out.println();
 	System.out.println();
 	
-	double GPA = pointsum / arraycounter;
-	DecimalFormat df = new DecimalFormat();
+	double GPA = 0.0;
+	
+	try
+	{
+		GPA = pointsum / arraycounter;
+		DecimalFormat df = new DecimalFormat();
+	}
+	catch (Exception e)
+	{
+		System.out.println("Error; " + e.getMessage());
+	}
+	finally
+	{
+		System.out.println("GPA calculation was attempted.");
+	}
 	
 	
 	System.out.format("%-90s%-5s", "", "GPA:  " + String.format("%.2f",GPA));

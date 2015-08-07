@@ -1,6 +1,8 @@
 public class CourseEnrollment {
 
 //Testing Comment
+	
+	// second comment
 
 	private String coursecode, grade;
 	private double credits, qualitypoints;
